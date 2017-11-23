@@ -28,7 +28,7 @@ build do
             delete "#{install_dir}/bin/agent/agent.exe"
             # TODO why does this get generated at all
             delete "#{install_dir}/bin/agent/agent.exe~"
-        else
+        elsif linux?
             # Move checks and configuration files
             mkdir "/etc/datadog-agent"
             move "#{install_dir}/bin/agent/dd-agent", "/usr/bin/dd-agent"
@@ -56,6 +56,8 @@ build do
             delete "#{install_dir}/bin/agent/dist/conf.d"
             delete "#{install_dir}/bin/agent/dist/*.conf"
             delete "#{install_dir}/bin/agent/dist/*.yaml"
+        elsif osx?
+            move "#{install_dir}/agent/checks.d", "#{install_dir}/checks.d"
         end
     end
 end
