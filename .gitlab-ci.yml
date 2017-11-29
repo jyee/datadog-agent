@@ -47,7 +47,7 @@ build_windows_msi_x64:
     - cd %GOPATH%\src\github.com\DataDog\datadog-agent
     - inv agent.omnibus-build
     - echo "%S3_CP_CMD% %OMNIBUS_PACKAGE_DIR%/datadog-agent-* %S3_BUILD_ARTIFACTS%/."
-    - "%S3_CP_CMD%" "%OMNIBUS_PACKAGE_DIR%/datadog-agent-*" "%S3_BUILD_ARTIFACTS%/."
+    - "%S3_CP_CMD% %OMNIBUS_PACKAGE_DIR%/datadog-agent-* %S3_BUILD_ARTIFACTS%/."
 #  artifacts:
 #    expire_in: 2 weeks
 #    paths:
