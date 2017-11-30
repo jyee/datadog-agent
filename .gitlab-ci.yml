@@ -45,8 +45,8 @@ build_windows_msi_x64:
   tags: ["runner:windows"]
   script:
     - cd %GOPATH%\src\github.com\DataDog\datadog-agent
-    - echo "%S3_CP_CMD% %OMNIBUS_PACKAGE_DIR%/datadog-agent-* %S3_BUILD_ARTIFACTS%/."
-    - "%S3_CP_CMD% test_aws_file %S3_BUILD_ARTIFACTS%/."
+    - echo "aws s3 cp --region us-east-1 --sse AES256 test_aws_file %S3_BUILD_ARTIFACTS%/."
+    - aws s3 cp --region us-east-1 --sse AES256 test_aws_file %S3_BUILD_ARTIFACTS%/.
 #  artifacts:
 #    expire_in: 2 weeks
 #    paths:
