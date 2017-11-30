@@ -38,9 +38,10 @@ build_dogstatsd_static-deb_x64:
   image: 486234852809.dkr.ecr.us-east-1.amazonaws.com/datadog-agent-builders/deb_x64:latest
   tags: [ "runner:main", "size:large" ]
   script:
-    - aws -h
-    - aws s3 -h
-    - aws s3 cp --region us-east-1 --sse AES256 test_aws_file $S3_BUILD_ARTIFACTS/dd_test
+    - which aws
+    - aws --help
+    - aws s3 --help
+    #- aws s3 cp --region us-east-1 --sse AES256 test_aws_file $S3_BUILD_ARTIFACTS/dd_test
 
 # build Agent package for Windows
 build_windows_msi_x64:
