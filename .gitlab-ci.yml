@@ -38,9 +38,9 @@ build_dogstatsd_static-deb_x64:
   image: 486234852809.dkr.ecr.us-east-1.amazonaws.com/datadog-agent-builders/deb_x64:latest
   tags: [ "runner:main", "size:large" ]
   script:
-    - aws --help
-    - aws --version
-    - aws s3 cp --region us-east-1 --sse AES256 test_aws_file %S3_BUILD_ARTIFACTS%/dd_test
+    - aws -h
+    - aws s3 -h
+    - aws s3 cp --region us-east-1 --sse AES256 test_aws_file $S3_BUILD_ARTIFACTS/dd_test
 
 # build Agent package for Windows
 build_windows_msi_x64:
@@ -55,9 +55,9 @@ build_windows_msi_x64:
   tags: ["runner:windows"]
   script:
     - cd %GOPATH%\src\github.com\DataDog\datadog-agent
+    - aws -h
+    - aws s3 -h
     - echo "aws s3 cp --region us-east-1 --sse AES256 test_aws_file %S3_BUILD_ARTIFACTS%/."
-    - aws --help
-    - aws --version
     - aws s3 cp --region us-east-1 --sse AES256 test_aws_file %S3_BUILD_ARTIFACTS%/.
 #  artifacts:
 #    expire_in: 2 weeks
