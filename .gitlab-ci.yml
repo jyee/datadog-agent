@@ -32,16 +32,16 @@ before_script:
 # package_build
 #
 
-# build dogstatsd static for deb-x64
-build_dogstatsd_static-deb_x64:
-  stage: package_build
-  image: 486234852809.dkr.ecr.us-east-1.amazonaws.com/datadog-agent-builders/deb_x64:latest
-  tags: [ "runner:main", "size:large" ]
-  script:
-    - which aws
-    - aws --help
-    - aws s3 --help
-    #- aws s3 cp --region us-east-1 --sse AES256 test_aws_file $S3_BUILD_ARTIFACTS/dd_test
+    ## build dogstatsd static for deb-x64
+    #build_dogstatsd_static-deb_x64:
+    #  stage: package_build
+    #  image: 486234852809.dkr.ecr.us-east-1.amazonaws.com/datadog-agent-builders/deb_x64:latest
+    #  tags: [ "runner:main", "size:large" ]
+    #  script:
+    #    - which aws
+    #    - aws --help
+    #    - aws s3 --help
+    #    #- aws s3 cp --region us-east-1 --sse AES256 test_aws_file $S3_BUILD_ARTIFACTS/dd_test
 
 # build Agent package for Windows
 build_windows_msi_x64:
@@ -51,17 +51,16 @@ build_windows_msi_x64:
     - mkdir %GOPATH%\src\github.com\DataDog\datadog-agent
     - xcopy /q/h/e/s * %GOPATH%\src\github.com\DataDog\datadog-agent
     - cd %GOPATH%\src\github.com\DataDog\datadog-agent
-    - inv -e deps
+     #- inv -e deps
     - pip install awscli
-    - pip show -f awscli
   stage: package_build
   tags: ["runner:windows"]
   script:
     - cd %GOPATH%\src\github.com\DataDog\datadog-agent
-    - aws -h
-    - aws s3 -h
-    - echo "aws s3 cp --region us-east-1 --sse AES256 test_aws_file %S3_BUILD_ARTIFACTS%/."
-    - aws s3 cp --region us-east-1 --sse AES256 test_aws_file %S3_BUILD_ARTIFACTS%/.
+    - C:\Python27\Scripts\aws --help
+      #- aws s3 -h
+    - #- echo "aws s3 cp --region us-east-1 --sse AES256 test_aws_file %S3_BUILD_ARTIFACTS%/."
+    - #- aws s3 cp --region us-east-1 --sse AES256 test_aws_file %S3_BUILD_ARTIFACTS%/.
 #  artifacts:
 #    expire_in: 2 weeks
 #    paths:
