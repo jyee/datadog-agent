@@ -52,6 +52,7 @@ build_windows_msi_x64:
     - xcopy /q/h/e/s * %GOPATH%\src\github.com\DataDog\datadog-agent
     - cd %GOPATH%\src\github.com\DataDog\datadog-agent
     - inv -e deps
+    - pip install awscli
   stage: package_build
   tags: ["runner:windows"]
   script:
