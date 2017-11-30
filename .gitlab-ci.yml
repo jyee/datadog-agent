@@ -34,7 +34,7 @@ before_script:
 
 # build dogstatsd static for deb-x64
 build_dogstatsd_static-deb_x64:
-  stage: binary_build
+  stage: package_build
   image: 486234852809.dkr.ecr.us-east-1.amazonaws.com/datadog-agent-builders/deb_x64:latest
   tags: [ "runner:main", "size:large" ]
   script:
