@@ -58,9 +58,10 @@ build_windows_msi_x64:
   script:
     - cd %GOPATH%\src\github.com\DataDog\datadog-agent
     - C:\Python27\Scripts\aws --help
-      #- aws s3 -h
-    - #- echo "aws s3 cp --region us-east-1 --sse AES256 test_aws_file %S3_BUILD_ARTIFACTS%/."
-    - #- aws s3 cp --region us-east-1 --sse AES256 test_aws_file %S3_BUILD_ARTIFACTS%/.
+    - C:\Python27\Scripts\aws s3 --help
+    #- aws s3 -h
+    #- echo "aws s3 cp --region us-east-1 --sse AES256 test_aws_file %S3_BUILD_ARTIFACTS%/."
+    #- aws s3 cp --region us-east-1 --sse AES256 test_aws_file %S3_BUILD_ARTIFACTS%/.
 #  artifacts:
 #    expire_in: 2 weeks
 #    paths:
