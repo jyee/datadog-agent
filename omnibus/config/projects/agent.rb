@@ -131,7 +131,7 @@ dependency 'jmxfetch'
 unless osx?
   dependency 'datadog-trace-agent'
 end
-unless windows?
+if linux?
   dependency 'datadog-process-agent'
   dependency 'datadog-logs-agent'
 end
