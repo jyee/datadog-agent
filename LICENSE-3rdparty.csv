@@ -34,6 +34,7 @@ core,github.com/magiconair/properties,BSD-2-Clause
 core,github.com/Microsoft/go-winio,MIT
 core,github.com/mitchellh/mapstructure,MIT
 core,github.com/mitchellh/reflectwalk,MIT
+core,github.com/moby/moby,Apache-2.0
 core,github.com/patrickmn/go-cache,MIT
 core,github.com/pelletier/go-buffruneio,MIT
 core,github.com/pelletier/go-toml,MIT
